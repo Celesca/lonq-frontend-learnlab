@@ -1,6 +1,6 @@
 import json
 import os
-from sqlmodel import Session
+from sqlmodel import Session, select
 try:
     from .database import engine, create_db_and_tables
     from .models import Place
@@ -22,9 +22,9 @@ def seed():
     create_db_and_tables()
     data = load_json()
     with Session(engine) as session:
-        existing = session.exec("SELECT COUNT(*) FROM place").one()
+        existing = session.exec(select(Place)).first()
         # If already seeded, skip inserting duplicates
-        if existing and existing[0] > 0:
+        if existing:
             print("DB already seeded")
             return
 

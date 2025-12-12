@@ -1,0 +1,18 @@
+src/__pycache__/
+ *.pyc
+ *.pyo
+ *.pyd
+ __pycache__/
+ env/
+ venv/
+ .env
+ .venv/
+ instance/
+ .pytest_cache/
+ .mypy_cache/
+ .coverage
+ htmlcov/
+ .hypothesis/
+ .DS_Store
+ *.sqlite3
+ *.db
